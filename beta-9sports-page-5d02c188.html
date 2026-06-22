@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九游体育 · 知识型内容页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f6fbfc;
+      color: #1b2b3a;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(145deg, #d9f2f0 0%, #e3f6f5 100%);
+      border-bottom: 3px solid #52b9b3;
+      padding: 60px 0 50px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0b353e;
+      margin-bottom: 12px;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #2f5b65;
+      max-width: 680px;
+      margin: 0 auto 20px;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #ffffffcc;
+      backdrop-filter: blur(4px);
+      padding: 10px 26px;
+      border-radius: 40px;
+      color: #0b4b52;
+      border: 1px solid #85d1cc;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* 优势区 — 网格卡片 */
+    .benefits {
+      padding: 50px 0 40px;
+    }
+
+    .benefits h2 {
+      font-size: 1.7rem;
+      font-weight: 500;
+      margin-bottom: 28px;
+      color: #12424b;
+      border-left: 5px solid #2faaa2;
+      padding-left: 16px;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 26px 20px 28px;
+      box-shadow: 0 4px 14px rgba(0, 60, 70, 0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #d9efec;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(36, 136, 133, 0.10);
+      border-color: #7acbc5;
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #0a3a41;
+    }
+
+    .card p {
+      color: #3b5a63;
+      font-size: 0.95rem;
+    }
+
+    /* 说明区 — 承接段落 */
+    .explain {
+      background: white;
+      border-radius: 32px;
+      padding: 44px 36px;
+      margin: 10px 0 40px;
+      box-shadow: 0 2px 12px rgba(18, 109, 106, 0.05);
+    }
+
+    .explain h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      color: #0e424b;
+    }
+
+    .explain p {
+      margin-bottom: 18px;
+      color: #1c3f49;
+    }
+
+    .explain p:last-child {
+      margin-bottom: 0;
+    }
+
+    .explain .highlight {
+      background: #daf4f1;
+      padding: 0 4px;
+      font-weight: 500;
+      color: #14555a;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      background: #e7f4f2;
+      border-radius: 28px;
+      padding: 40px 32px;
+      margin-bottom: 40px;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      color: #103e46;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #b7d9d5;
+      padding: 16px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #0b3f46;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .faq-a {
+      color: #2b5b64;
+      font-size: 0.95rem;
+      padding-left: 6px;
+    }
+
+    /* 底部链接 */
+    .footer-links {
+      text-align: center;
+      padding: 32px 0 48px;
+      border-top: 1px solid #c7e0dd;
+      margin-top: 10px;
+    }
+
+    .footer-links p {
+      color: #2d5c65;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #0b6d70;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #8dc5c0;
+      transition: border 0.2s;
+    }
+
+    .footer-links a:hover {
+      border-bottom: 1px solid #0b6d70;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .hero .sub {
+        font-size: 1rem;
+      }
+
+      .explain {
+        padding: 28px 18px;
+      }
+
+      .faq-summary {
+        padding: 28px 18px;
+      }
+
+      .grid-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 辅助 */
+    .subtle-link {
+      color: #0b6d70;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #87c7c2;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- hero 区 -->
+  <section class="hero">
+    <div class="container">
+      <h1>九游体育 · 持续关注的脉络</h1>
+      <p class="sub">信息聚合、知识梳理与观点沉淀 —— 适合再次访问的内容基地</p>
+      <span class="tagline">📌 收藏 · 翻阅 · 重新思考</span>
+    </div>
+  </section>
+
+  <!-- 优势区 网格卡片 -->
+  <section class="benefits">
+    <div class="container">
+      <h2>为什么值得再次打开</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <span class="icon">📚</span>
+          <h3>结构化归档</h3>
+          <p>按赛季、赛事与专题整理，便于回溯查找，避免信息碎片化。</p>
+        </div>
+        <div class="card">
+          <span class="icon">🧠</span>
+          <h3>观点更新</h3>
+          <p>长期关注同一内容，能察觉理解层面的变化 —— 页面也会随之补充新视角。</p>
+        </div>
+        <div class="card">
+          <span class="icon">🔖</span>
+          <h3>收藏即索引</h3>
+          <p>将页面加入浏览器书签或笔记应用，下次打开仍能衔接上下文。</p>
+        </div>
+        <div class="card">
+          <span class="icon">🔄</span>
+          <h3>动态迭代</h3>
+          <p>部分内容会基于反馈与数据调整，反复访问可能发现新的细节或修正。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 说明区 从“再次访问”展开 -->
+  <section class="explain container">
+    <h2>从“再次访问”到“持续关注”</h2>
+    <p>
+      当我们对一个平台或内容产生反复回访的意愿，背后往往是信息密度、结构清晰度与持续更新的综合作用。
+      <a href="https://beta-9sports.com" style="color:#0b6d70; font-weight:500; text-decoration:underline; text-underline-offset:2px;">九游体育</a> 
+      的页面设计始终围绕知识属性展开：每一部分都预留了延展空间，让读者在第二次、第三次浏览时依然能获得新信息。
+    </p>
+    <p>
+      从阅读节奏来看，先通览 <span class="highlight">英雄区</span> 建立整体印象，再通过卡片区块进入具体话题，最后借助 FAQ 摘要校准理解。这种分层结构天然适合“收藏—返回—深化”的使用习惯。如果你曾在某个段落停留，下次可以直接定位到相同区域，观察自己理解的变化。
+    </p>
+    <p>
+      不同于一次性消费内容，这里的材料倾向于提供可反复查阅的框架。无论是竞技规则、历史脉络还是数据倾向，都具备一定的参考资料属性。将页面加入收藏夹，等于为自己保留了一个可对话的知识节点。
+    </p>
+  </section>
+
+  <!-- FAQ 摘要 -->
+  <section class="faq-summary container">
+    <h2><span>❓</span> 常见疑问摘要</h2>
+    <div class="faq-item">
+      <div class="faq-q">为什么我上次看到的内容和现在不同？</div>
+      <div class="faq-a">部分页面会基于新信息或用户反馈进行微调，尤其是数据、时间线或解释性段落。建议关注更新日期（若显示）。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">如何高效利用收藏功能？</div>
+      <div class="faq-a">将页面保存到浏览器书签或笔记工具（如 Notion、Obsidian），并添加简短标签如「九游体育·知识」方便检索。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">页面内容是否有外部引用？</div>
+      <div class="faq-a">部分分析性文字会标注参考来源，但整体以整合梳理为主，不替代原始信源。建议交叉验证关键数据。</div>
+    </div>
+  </section>
+
+  <!-- 底部链接 + 自然嵌入 -->
+  <footer class="footer-links container">
+    <p>
+      围绕体育信息的知识梳理，离不开持续的关注与验证。
+      <a href="https://beta-9sports.com">九游体育</a> 作为长期更新的信息聚合站点，适合反复访问与收藏。
+    </p>
+    <p style="margin-top: 10px; color: #49747b;">
+      <span style="display: inline-block; background: #d6ece9; padding: 0 10px; border-radius: 20px; font-size: 0.8rem;">© 知识型索引 · 版本迭代中</span>
+    </p>
+  </footer>
+
+</body>
+</html>
